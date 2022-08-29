@@ -13,19 +13,19 @@ const Navbar = () => {
         <div>
           <div className="link-container">
             <NavLink
-              className={({ isActive }) => (isActive ? "active-link" : "link")}
+              className={({ isActive }) => isActive ? 'active-link' : 'link' }
               to="/"
             >
               Home
             </NavLink>
             <NavLink
-              className={({ isActive }) => (isActive ? "active-link" : "link")}
+              className={({ isActive }) => isActive ? 'active-link' : 'link' }
               to="/videos"
             >
               Videos
             </NavLink>
             <NavLink
-              className={({ isActive }) => (isActive ? "active-link" : "link")}
+              className={({ isActive }) => isActive ? 'active-link' : 'link' }
               to="/login"
             >
               Login
