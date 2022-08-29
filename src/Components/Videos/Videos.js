@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Video = () => {
+const Videos = () => {
   return (
     <div>
       <h2>Video Section</h2>
@@ -8,4 +8,4 @@ const Video = () => {
   );
 };
 
-export default Video;
+export default Videos;
