@@ -15,7 +15,7 @@ const Navbar = () => {
       <nav className="nav custom-grid">
         <img src={Logo} alt="Website Logo" className="nav__logo" />
 
-        <div className="nav__menu">
+        <div className={toggle ? "nav__menu" : "hidden"}>
           <a href="/" className="nav__link">Home</a>
           <a href="/" className="nav__link">Videos</a>
           <a href="/" className="nav__link">Login</a>

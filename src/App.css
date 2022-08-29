@@ -10,7 +10,7 @@
 
   /* Navbar Design */
   .navbar {
-    @apply w-full bg-white shadow;
+    @apply w-full bg-white shadow relative;
   }
 
   .nav__logo {
@@ -22,8 +22,13 @@
   }
 
   .nav__menu {
-    @apply hidden;
+    @apply absolute top-14 left-0 grid w-full min-h-0 bg-white/90 pb-4 shadow;
   }
+
+  .nav__link {
+    @apply px-4 py-2 text-[#1E90C2] hover:text-[#1B4388];
+  }
+  
 
   .nav__toggle {
     @apply border rounded-md w-8 h-8 flex items-center justify-center outline-none cursor-pointer justify-self-end;
@@ -38,5 +43,9 @@
 @layer utilities {
   body {
     font-family: 'Raleway', sans-serif;
+  }
+
+  .nav__link {
+    font-family: 'Teko', sans-serif;
   }
 }
