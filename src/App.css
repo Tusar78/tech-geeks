@@ -52,15 +52,19 @@
 
   /* Home Section design */
   .home {
-    @apply pt-20;
+    @apply pt-20 md:pt-24;
   }
 
   .blog-container {
-    @apply gap-8;
+    @apply gap-8 max-w-screen-lg;
+  }
+
+  .blog {
+    @apply md:flex items-center space-x-6 lg:space-x-10;
   }
 
   .blog__img {
-    @apply p-2 shadow-lg rounded-md border;
+    @apply p-2 shadow-lg rounded-md border md:w-80 md:h-80 md:object-cover;
   }
 
   .blog__head {
@@ -81,6 +85,10 @@
 
   .blog__body {
     @apply mt-4;
+  }
+
+  .blog__read-more {
+    @apply text-[#1B4388] font-medium cursor-pointer;
   }
 }
 
