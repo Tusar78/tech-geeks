@@ -18,20 +18,32 @@
   }
 
   .nav {
-    @apply grid-cols-2 items-center h-14;
+    @apply grid-cols-2 items-center h-14 lg:h-16;
   }
 
   .nav__menu {
-    @apply absolute top-14 left-0 grid w-full min-h-0 bg-white/90 pb-4 shadow;
+    @apply absolute top-14 left-0 grid w-full min-h-min bg-white/90 pb-4 shadow md:justify-self-end md:w-min md:static md:pb-0 md:shadow-none;
+  }
+
+  .nav__menu-hide {
+    @apply hidden md:block;
+  }
+
+  .nav__list {
+    @apply md:flex;
+  }
+
+  .nav__item {
+    @apply py-2 w-full;
   }
 
   .nav__link {
-    @apply px-4 py-2 text-[#1E90C2] hover:text-[#1B4388];
+    @apply px-4 text-[#1E90C2] hover:text-[#1B4388] text-base block md:inline tracking-wider;
   }
   
 
   .nav__toggle {
-    @apply border rounded-md w-8 h-8 flex items-center justify-center outline-none cursor-pointer justify-self-end;
+    @apply border rounded-md w-8 h-8 flex items-center justify-center outline-none cursor-pointer justify-self-end md:hidden;
   }
 
   .nav__toggle-icon {

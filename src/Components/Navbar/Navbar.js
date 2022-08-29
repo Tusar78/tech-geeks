@@ -15,10 +15,12 @@ const Navbar = () => {
       <nav className="nav custom-grid">
         <img src={Logo} alt="Website Logo" className="nav__logo" />
 
-        <div className={toggle ? "nav__menu" : "hidden"}>
-          <a href="/" className="nav__link">Home</a>
-          <a href="/" className="nav__link">Videos</a>
-          <a href="/" className="nav__link">Login</a>
+        <div className={toggle ? "nav__menu" : "nav__menu nav__menu-hide"}>
+          <ul className="nav__list">
+            <li className="nav__item"><a href="/" className="nav__link">Home</a></li>
+            <li className="nav__item"><a href="/" className="nav__link">Videos</a></li>
+            <li className="nav__item"><a href="/" className="nav__link">Login</a></li>
+          </ul>
         </div>
 
         <button className='nav__toggle' onClick={handleToggle}>
