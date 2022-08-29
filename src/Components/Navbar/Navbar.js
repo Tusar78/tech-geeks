@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { HiOutlineMenuAlt4 } from 'react-icons/hi';
 import { MdOutlineClose } from 'react-icons/md';
 import Logo from "../../Assets/Image/logo.png";
+import ActiveLink from '../ActiveLink/ActiveLink';
 
 const Navbar = () => {
   const [toggle, setToggle] = useState(false);
@@ -13,13 +14,27 @@ const Navbar = () => {
   return (
     <div className='navbar'>
       <nav className="nav custom-grid">
-        <img src={Logo} alt="Website Logo" className="nav__logo" />
+        <ActiveLink to="/">
+          <img src={Logo} alt="Website Logo" className="nav__logo" />
+        </ActiveLink>
 
         <div className={toggle ? "nav__menu" : "nav__menu nav__menu-hide"}>
           <ul className="nav__list">
-            <li className="nav__item"><a href="/" className="nav__link">Home</a></li>
-            <li className="nav__item"><a href="/" className="nav__link">Videos</a></li>
-            <li className="nav__item"><a href="/" className="nav__link">Login</a></li>
+            <li className="nav__item">
+              <ActiveLink to="/home">
+                Home
+              </ActiveLink>
+            </li>
+            <li className="nav__item">
+              <ActiveLink to="/videos">
+                Videos
+              </ActiveLink>
+            </li>
+            <li className="nav__item">
+              <ActiveLink to="/login">
+                Login
+              </ActiveLink>
+            </li>
           </ul>
         </div>
 
