@@ -10,7 +10,7 @@
 
   /* Navbar Design */
   .navbar {
-    @apply w-full bg-white shadow relative;
+    @apply w-full bg-white shadow fixed top-0 left-0;
   }
 
   .nav__logo {
@@ -50,6 +50,38 @@
     @apply text-xl text-gray-600;
   }
 
+  /* Home Section design */
+  .home {
+    @apply pt-20;
+  }
+
+  .blog-container {
+    @apply gap-8;
+  }
+
+  .blog__img {
+    @apply p-2 shadow-lg rounded-md border;
+  }
+
+  .blog__head {
+    @apply mt-4;
+  }
+
+  .blog__title {
+    @apply text-xl text-[#1B4388] font-semibold;
+  }
+
+  .blog__subtitle {
+    @apply flex items-baseline;
+  }
+
+  .blog__subtitle-text {
+    @apply text-sm text-[#1E90C2] ml-1;
+  }
+
+  .blog__body {
+    @apply mt-4;
+  }
 }
 
 @layer utilities {

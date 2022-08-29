@@ -11,7 +11,7 @@ const Home = () => {
 
   return (
     <section className="home">
-      <div className="blog-container">
+      <div className="blog-container custom-grid">
         {blogs.map(blog => <Blog key={blog._id} blogData={blog} />)}
       </div>
     </section>
