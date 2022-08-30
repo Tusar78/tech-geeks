@@ -19,6 +19,13 @@ const Login = () => {
           <div className="form__button">
             <button type='submit'>Login</button>
           </div>
+
+          <div className='form__login-register'>
+            <span>New To Tech Geeks?</span>
+            <div>
+              <input type="checkbox" name="loginRegister" />
+            </div>
+          </div>
         </form>
       </div>
     </section>
