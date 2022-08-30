@@ -24,6 +24,7 @@ const Login = () => {
             <span>New To Tech Geeks?</span>
             <div>
               <input type="checkbox" name="loginRegister" />
+              <label htmlFor="loginRegister">Create An Account</label>
             </div>
           </div>
         </form>
