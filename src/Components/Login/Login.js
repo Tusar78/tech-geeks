@@ -20,6 +20,10 @@ const Login = () => {
         const user = result.user;
         console.log(user);
       })
+      .catch(error => {
+        const errorMessage = error.message;
+        console.log(errorMessage);
+      })
   }
 
   return (
