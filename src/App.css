@@ -153,7 +153,7 @@
   }
 
   .form {
-    @apply max-w-md px-8 py-10 shadow-lg rounded-lg;
+    @apply max-w-md w-full px-8 py-10 shadow-lg rounded-lg justify-self-center;
   }
 
   .form__title {
@@ -169,11 +169,11 @@
   }
 
   .form__input {
-    @apply border border-[#1B4388]/70 w-full py-2 px-3 rounded-lg outline-none;
+    @apply border border-[#1B4388]/70 w-full py-2 px-3 rounded-lg outline-none lg:py-3;
   }
 
   .form__button {
-    @apply mt-5 w-full py-2 bg-gradient-to-r from-[#1B4388] to-[#1E90C2] rounded-lg text-white font-medium;
+    @apply mt-5 w-full py-2 bg-gradient-to-r from-[#1B4388] to-[#1E90C2] rounded-lg text-white font-medium lg:py-3;
   }
 
   .form__login-register {
@@ -193,11 +193,11 @@
   }
 
   .form__google-btn {
-    @apply border border-[#1E90C2] rounded-lg py-2 flex w-full justify-center relative cursor-pointer;
+    @apply border border-[#1E90C2] rounded-lg py-2 flex w-full justify-center relative cursor-pointer lg:py-3;
   }
 
   .form__google-btn-icon {
-    @apply absolute top-2 left-2 text-2xl;
+    @apply absolute top-2 left-2 text-2xl lg:top-[0.7rem] lg:text-[26px];
   }
 }
 
