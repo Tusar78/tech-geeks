@@ -1,12 +1,26 @@
 import React, { useState } from "react";
+import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { FcGoogle } from "react-icons/fc";
+import app from "../../firebase.init";
+
+const auth = getAuth(app)
 
 const Login = () => {
   const [toggle, setToggle] = useState(true);
+  const googleProvider = new GoogleAuthProvider();
 
   const handleCheckbox = (e) => {
     setToggle(e.target.checked);
   };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    signInWithPopup(auth, googleProvider)
+      .then(result => {
+        const user = result.user;
+        console.log(user);
+      })
+  }
 
   return (
     <section className="section">
@@ -78,7 +92,7 @@ const Login = () => {
                 </>
             )}
 
-            <button type="submit" className="form__button">
+            <button type="submit" className="form__button" onClick={handleSubmit}>
               {toggle ? "Login" : "Sign Up"}
             </button>
           </form>
