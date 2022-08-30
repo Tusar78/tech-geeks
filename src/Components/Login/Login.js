@@ -1,30 +1,54 @@
-import React from 'react';
+import React from "react";
 
 const Login = () => {
   return (
-    <section className='section'>
+    <section className="section">
       <div className="form-container">
-        <form className='form'>
+        <form className="form">
           <h2 className="form__title">Login</h2>
 
           <div className="form__group">
-            <label htmlFor="email" className='form__label'>Email</label>
-            <input type="email" name="email" id="email" className='form__input email' />
+            <label htmlFor="email" className="form__label">
+              Email
+            </label>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              className="form__input email"
+            />
           </div>
           <div className="form__group">
-            <label htmlFor="password" className='form__label'>Email</label>
-            <input type="password" name="password" id="password" className='form__input password' />
+            <label htmlFor="password" className="form__label">
+              Email
+            </label>
+            <input
+              type="password"
+              name="password"
+              id="password"
+              className="form__input password"
+            />
           </div>
 
           <div className="form__button">
-            <button type='submit'>Login</button>
+            <button type="submit">Login</button>
           </div>
 
-          <div className='form__login-register'>
+          <div className="form__login-register">
             <span>New To Tech Geeks?</span>
             <div>
-              <input type="checkbox" name="loginRegister" />
-              <label htmlFor="loginRegister">Create An Account</label>
+              <input
+                type="checkbox"
+                name="checkbox"
+                className="form__loginRegister-checkbox"
+                id="loginRegister"
+              />
+              <label
+                htmlFor="loginRegister"
+                className="form__loginRegister-text"
+              >
+                Create An Account
+              </label>
             </div>
           </div>
         </form>
