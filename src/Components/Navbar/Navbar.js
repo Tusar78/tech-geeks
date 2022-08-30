@@ -1,18 +1,21 @@
 import React, { useState } from 'react';
 import { HiOutlineMenuAlt4 } from 'react-icons/hi';
 import { MdOutlineClose } from 'react-icons/md';
+import { useLocation } from 'react-router-dom';
 import Logo from "../../Assets/Image/logo.png";
 import ActiveLink from '../ActiveLink/ActiveLink';
 
 const Navbar = () => {
   const [toggle, setToggle] = useState(false);
+  const location = useLocation();
+  const pathName = location.pathname;
 
   const handleToggle = () => {
     setToggle(!toggle);
   }
 
   return (
-    <div className='navbar'>
+    <div className={pathName.includes('blog') ? 'navbar hidden' : 'navbar'}>
       <nav className="nav custom-grid">
         <ActiveLink to="/">
           <img src={Logo} alt="Website Logo" className="nav__logo" />

@@ -1,9 +1,9 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import indicator from "../../Assets/Image/indicator.svg";
-console.log(indicator);
 
 const Blog = ({ blogData }) => {
-  console.log(blogData);
+  const navigate = useNavigate();
   const { _id, admin, blog, title, imageName, imageURL } = blogData;
   return (
     <div className="blog">
@@ -17,7 +17,7 @@ const Blog = ({ blogData }) => {
           </div>
         </div>
         <div className="blog__body">
-          <p className="blog__text">{blog.length > 400 ? blog.substr(0, 400) : blog} <span className="blog__read-more">{blog.length > 400 ? 'Read More...' : ''}</span></p>
+          <p className="blog__text">{blog.length > 400 ? blog.substr(0, 400) : blog} <span className="blog__read-more" onClick={() => navigate(`/blog/${_id}`)}>{blog.length > 400 ? 'Read More...' : ''}</span></p>
         </div>
       </div>
     </div>

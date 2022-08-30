@@ -64,7 +64,7 @@
   }
 
   .blog__img {
-    @apply p-2 shadow-lg rounded-md border md:w-80 md:h-80 md:object-cover;
+    @apply p-2 shadow-lg rounded-md border md:w-80 md:h-56 md:object-cover lg:w-96 lg:h-72;
   }
 
   .blog__head {
@@ -88,7 +88,7 @@
   }
 
   .blog__read-more {
-    @apply text-[#1B4388] font-medium cursor-pointer;
+    @apply text-[#1B4388] font-semibold cursor-pointer;
   }
 }
 
