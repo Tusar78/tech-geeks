@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { FcGoogle } from "react-icons/fc";
-import app from "../../firebase.init";
+import app from "../../firebase.init.js";
 
-const auth = getAuth(app)
+const auth = getAuth(app);
 
 const Login = () => {
   const [toggle, setToggle] = useState(true);
@@ -13,18 +13,21 @@ const Login = () => {
     setToggle(e.target.checked);
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleGoogleProvider = () => {
     signInWithPopup(auth, googleProvider)
-      .then(result => {
+      .then((result) => {
         const user = result.user;
         console.log(user);
       })
-      .catch(error => {
+      .catch((error) => {
         const errorMessage = error.message;
         console.log(errorMessage);
-      })
-  }
+      });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
 
   return (
     <section className="section">
@@ -32,80 +35,81 @@ const Login = () => {
         <div className="form">
           <form>
             <h2 className="form__title">{toggle ? "Login" : "Sign Up"}</h2>
-            {
-              toggle ? (
-                <>
-                  <div className="form__group">
-                    <label htmlFor="email" className="form__label">
-                      Email
-                    </label>
-                    <input
-                      type="email"
-                      name="email"
-                      id="email"
-                      className="form__input email"
-                    />
-                  </div>
-                  <div className="form__group">
-                    <label htmlFor="password" className="form__label">
-                      Password
-                    </label>
-                    <input
-                      type="password"
-                      name="password"
-                      id="password"
-                      className="form__input password"
-                    />
-                  </div> 
-                </>
-              ) : (
-                <>
-                  <div className="form__group">
-                    <label htmlFor="email" className="form__label">
-                      Email
-                    </label>
-                    <input
-                      type="email"
-                      name="email"
-                      id="email"
-                      className="form__input email"
-                    />
-                  </div>
-                  <div className="form__group">
-                    <label htmlFor="password" className="form__label">
-                      Password
-                    </label>
-                    <input
-                      type="password"
-                      name="password"
-                      id="password"
-                      className="form__input password"
-                    />
-                  </div>
-                  <div className="form__group">
-                    <label htmlFor="confirmedPassword" className="form__label">
-                      Confirmed Password
-                    </label>
-                    <input
-                      type="password"
-                      name="confirmed-password"
-                      id="confirmedPassword"
-                      className="form__input confirmed-password"
-                    />
-                  </div>
-                </>
+            {toggle ? (
+              <>
+                <div className="form__group">
+                  <label htmlFor="email" className="form__label">
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    name="email"
+                    id="email"
+                    className="form__input email"
+                  />
+                </div>
+                <div className="form__group">
+                  <label htmlFor="password" className="form__label">
+                    Password
+                  </label>
+                  <input
+                    type="password"
+                    name="password"
+                    id="password"
+                    className="form__input password"
+                  />
+                </div>
+              </>
+            ) : (
+              <>
+                <div className="form__group">
+                  <label htmlFor="email" className="form__label">
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    name="email"
+                    id="email"
+                    className="form__input email"
+                  />
+                </div>
+                <div className="form__group">
+                  <label htmlFor="password" className="form__label">
+                    Password
+                  </label>
+                  <input
+                    type="password"
+                    name="password"
+                    id="password"
+                    className="form__input password"
+                  />
+                </div>
+                <div className="form__group">
+                  <label htmlFor="confirmedPassword" className="form__label">
+                    Confirmed Password
+                  </label>
+                  <input
+                    type="password"
+                    name="confirmed-password"
+                    id="confirmedPassword"
+                    className="form__input confirmed-password"
+                  />
+                </div>
+              </>
             )}
 
-            <button type="submit" className="form__button" onClick={handleSubmit}>
+            <button
+              type="submit"
+              className="form__button"
+              onClick={handleSubmit}
+            >
               {toggle ? "Login" : "Sign Up"}
             </button>
           </form>
 
           <div className="form__login-register">
             <span className="form__loginRegister-demo">
-              {
-                toggle ? 'New To Tech Geeks?' : 'Already have an account?'
-              }
+              {toggle ? "New To Tech Geeks?" : "Already have an account?"}
             </span>
             <div className="flex">
               <input
@@ -119,15 +123,13 @@ const Login = () => {
                 htmlFor="loginRegister"
                 className="form__loginRegister-text"
               >
-                {
-                  toggle ? 'Create An Account' : 'Log in'
-                }                
+                {toggle ? "Create An Account" : "Log in"}
               </label>
             </div>
           </div>
           <p className="form__divider">or</p>
 
-          <button className="form__google-btn">
+          <button className="form__google-btn" onClick={handleGoogleProvider}>
             <FcGoogle className="form__google-btn-icon" />
             <span>Continue with Google</span>
           </button>
