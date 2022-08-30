@@ -15,6 +15,10 @@ const Login = () => {
             <label htmlFor="password" className='form__label'>Email</label>
             <input type="password" name="password" id="password" className='form__input password' />
           </div>
+
+          <div className="form__button">
+            <button type='submit'>Login</button>
+          </div>
         </form>
       </div>
     </section>
