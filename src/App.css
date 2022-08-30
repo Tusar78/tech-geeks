@@ -149,7 +149,7 @@
 
   /* Form Design */
   .form-container {
-    @apply pt-20;
+    @apply pt-20 pb-12;
   }
 
   .form {
