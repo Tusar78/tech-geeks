@@ -128,23 +128,23 @@
 
   /* Video Section */
   .video__container {
-    @apply max-w-screen-lg pt-20;
+    @apply max-w-screen-lg pt-20 lg:pt-32 pb-12;
   }
 
   .video__head {
-    @apply mb-8
+    @apply mb-8 lg:mb-16;
   }
   
   .video__title {
-    @apply mb-2
+    @apply mb-2 md:text-2xl lg:text-[28px];
   }
 
   .video__subtitle {
-    @apply text-[#1E90C2] text-sm;
+    @apply text-[#1E90C2] text-sm md:text-base lg:text-xl;
   }
 
   .video__player {
-    @apply w-full h-48;
+    @apply w-full h-48 md:h-96 lg:h-[34rem];
   }
 }
 
