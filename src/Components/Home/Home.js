@@ -3,13 +3,13 @@ import { BlogContext } from "../../App";
 import Blog from "../Blog/Blog";
 
 const Home = () => {
-  // const [blogs, setBlogs] = useState([]);
   const [blogs, setBlogs] = useContext(BlogContext);
+  console.log(blogs);
   useEffect(() => {
     fetch(`fakeData/data.json`)
       .then((res) => res.json())
       .then((data) => setBlogs(data));
-  }, []);
+  }, [setBlogs]);
 
   return (
     <section className="home">
