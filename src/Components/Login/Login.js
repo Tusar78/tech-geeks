@@ -3,7 +3,7 @@ import React from "react";
 const Login = () => {
   return (
     <section className="section">
-      <div className="form-container">
+      <div className="form-container custom-grid">
         <form className="form">
           <h2 className="form__title">Login</h2>
 
@@ -20,7 +20,7 @@ const Login = () => {
           </div>
           <div className="form__group">
             <label htmlFor="password" className="form__label">
-              Email
+              Password
             </label>
             <input
               type="password"
@@ -30,17 +30,17 @@ const Login = () => {
             />
           </div>
 
-          <div className="form__button">
-            <button type="submit">Login</button>
-          </div>
+          <button type="submit" className="form__button">
+            Login
+          </button>
 
           <div className="form__login-register">
-            <span>New To Tech Geeks?</span>
-            <div>
+            <span className="form__loginRegister-demo">New To Tech Geeks?</span>
+            <div className="flex">
               <input
                 type="checkbox"
                 name="checkbox"
-                className="form__loginRegister-checkbox"
+                className="hidden"
                 id="loginRegister"
               />
               <label
@@ -51,6 +51,8 @@ const Login = () => {
               </label>
             </div>
           </div>
+
+          <p className="form__divider">or</p>
         </form>
       </div>
     </section>

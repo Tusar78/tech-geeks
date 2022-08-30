@@ -146,6 +146,47 @@
   .video__player {
     @apply w-full h-48 md:h-96 lg:h-[34rem];
   }
+
+  /* Form Design */
+  .form-container {
+    @apply pt-20
+  }
+
+  .form {
+    @apply max-w-md px-8 py-10 shadow-lg rounded-lg;
+  }
+
+  .form__title {
+    @apply text-center text-2xl text-[#1B4388] font-semibold mb-8;
+  }
+
+  .form__group {
+    @apply mb-4;
+  }
+
+  .form__label {
+    @apply text-base text-[#1B4388] block ml-2;
+  }
+
+  .form__input {
+    @apply border border-[#1B4388]/70 w-full py-2 px-3 rounded-lg outline-none;
+  }
+
+  .form__button {
+    @apply mt-5 w-full py-2 bg-gradient-to-r from-[#1B4388] to-[#1E90C2] rounded-lg text-white font-medium;
+  }
+
+  .form__login-register {
+    @apply flex items-center mt-2 justify-center;
+  }
+
+  .form__loginRegister-demo {
+    @apply text-[#1B4388] text-xs mr-1;
+  }
+
+  .form__loginRegister-text {
+    @apply text-[#1E90C2] text-xs cursor-pointer;
+  }  
 }
 
 @layer utilities {
