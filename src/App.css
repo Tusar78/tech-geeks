@@ -71,7 +71,8 @@
   }
 
   .blog__title,
-  .blog-details__title {
+  .blog-details__title,
+  .video__title {
     @apply text-xl text-[#1B4388] font-semibold lg:text-2xl;
   }
 
@@ -123,6 +124,27 @@
 
   .blog-details__text {
     @apply mt-4 text-[#092350] md:text-base lg:text-xl;
+  }
+
+  /* Video Section */
+  .video__container {
+    @apply max-w-screen-lg pt-20;
+  }
+
+  .video__head {
+    @apply mb-8
+  }
+  
+  .video__title {
+    @apply mb-2
+  }
+
+  .video__subtitle {
+    @apply text-[#1E90C2] text-sm;
+  }
+
+  .video__player {
+    @apply w-full h-48;
   }
 }
 
