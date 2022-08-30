@@ -1,55 +1,109 @@
-import React from "react";
+import React, { useState } from "react";
 import { FcGoogle } from "react-icons/fc";
 
 const Login = () => {
+  const [toggle, setToggle] = useState(true);
+
+  const handleCheckbox = (e) => {
+    setToggle(e.target.checked);
+  };
+
   return (
     <section className="section">
       <div className="form-container custom-grid">
         <div className="form">
           <form>
-            <h2 className="form__title">Login</h2>
-            <div className="form__group">
-              <label htmlFor="email" className="form__label">
-                Email
-              </label>
-              <input
-                type="email"
-                name="email"
-                id="email"
-                className="form__input email"
-              />
-            </div>
-            <div className="form__group">
-              <label htmlFor="password" className="form__label">
-                Password
-              </label>
-              <input
-                type="password"
-                name="password"
-                id="password"
-                className="form__input password"
-              />
-            </div>
+            <h2 className="form__title">{toggle ? "Login" : "Sign Up"}</h2>
+            {
+              toggle ? (
+                <>
+                  <div className="form__group">
+                    <label htmlFor="email" className="form__label">
+                      Email
+                    </label>
+                    <input
+                      type="email"
+                      name="email"
+                      id="email"
+                      className="form__input email"
+                    />
+                  </div>
+                  <div className="form__group">
+                    <label htmlFor="password" className="form__label">
+                      Password
+                    </label>
+                    <input
+                      type="password"
+                      name="password"
+                      id="password"
+                      className="form__input password"
+                    />
+                  </div> 
+                </>
+              ) : (
+                <>
+                  <div className="form__group">
+                    <label htmlFor="email" className="form__label">
+                      Email
+                    </label>
+                    <input
+                      type="email"
+                      name="email"
+                      id="email"
+                      className="form__input email"
+                    />
+                  </div>
+                  <div className="form__group">
+                    <label htmlFor="password" className="form__label">
+                      Password
+                    </label>
+                    <input
+                      type="password"
+                      name="password"
+                      id="password"
+                      className="form__input password"
+                    />
+                  </div>
+                  <div className="form__group">
+                    <label htmlFor="confirmedPassword" className="form__label">
+                      Confirmed Password
+                    </label>
+                    <input
+                      type="password"
+                      name="confirmed-password"
+                      id="confirmedPassword"
+                      className="form__input confirmed-password"
+                    />
+                  </div>
+                </>
+            )}
 
             <button type="submit" className="form__button">
-              Login
+              {toggle ? "Login" : "Sign Up"}
             </button>
           </form>
 
           <div className="form__login-register">
-            <span className="form__loginRegister-demo">New To Tech Geeks?</span>
+            <span className="form__loginRegister-demo">
+              {
+                toggle ? 'New To Tech Geeks?' : 'Already have an account?'
+              }
+            </span>
             <div className="flex">
               <input
                 type="checkbox"
                 name="checkbox"
                 className="hidden"
                 id="loginRegister"
+                onClick={handleCheckbox}
               />
               <label
                 htmlFor="loginRegister"
                 className="form__loginRegister-text"
               >
-                Create An Account
+                {
+                  toggle ? 'Create An Account' : 'Log in'
+                }                
               </label>
             </div>
           </div>

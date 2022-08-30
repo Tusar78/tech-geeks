@@ -197,7 +197,7 @@
   }
 
   .form__google-btn-icon {
-    @apply absolute top-2 left-2 text-2xl
+    @apply absolute top-2 left-2 text-2xl;
   }
 }
 
@@ -217,12 +217,12 @@
     position: absolute;
     top: 50%;
     left: 0;
-    width: 45%;
+    width: 40%;
     height: 1px;
     background: linear-gradient(to right, #1b4388, #1e90c2);
   }
 
   .form__divider::after{
-    left: 55%;
+    left: 60%;
   }
 }
