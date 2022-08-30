@@ -134,7 +134,7 @@
   .video__head {
     @apply mb-8 lg:mb-16;
   }
-  
+
   .video__title {
     @apply mb-2 md:text-2xl lg:text-[28px];
   }
@@ -149,7 +149,7 @@
 
   /* Form Design */
   .form-container {
-    @apply pt-20
+    @apply pt-20;
   }
 
   .form {
@@ -186,7 +186,19 @@
 
   .form__loginRegister-text {
     @apply text-[#1E90C2] text-xs cursor-pointer;
-  }  
+  }
+
+  .form__divider {
+    @apply my-6 text-center text-[#1E90C2] relative;
+  }
+
+  .form__google-btn {
+    @apply border border-[#1E90C2] rounded-lg py-2 flex w-full justify-center relative cursor-pointer;
+  }
+
+  .form__google-btn-icon {
+    @apply absolute top-2 left-2 text-2xl
+  }
 }
 
 @layer utilities {
@@ -197,5 +209,20 @@
   .nav__link,
   .blog-details__back {
     font-family: "Teko", sans-serif;
+  }
+
+  .form__divider::before,
+  .form__divider::after{
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 45%;
+    height: 1px;
+    background: linear-gradient(to right, #1b4388, #1e90c2);
+  }
+
+  .form__divider::after{
+    left: 55%;
   }
 }
