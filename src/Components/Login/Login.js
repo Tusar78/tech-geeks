@@ -11,10 +11,12 @@ import {
 
 const Login = () => {
   const [toggle, setToggle] = useState(true);
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirmedPassword, setConfirmedPassword] = useState('');
-  
+  const [email, setEmail] = useState({value: '', error: ''});
+  const [password, setPassword] = useState({value: '', error: ''});
+  const [confirmedPassword, setConfirmedPassword] = useState({value: '', error: ''});
+
+  console.log(email);
+
   const googleProvider = new GoogleAuthProvider();
 
   const navigate = useNavigate();
@@ -53,7 +55,11 @@ const Login = () => {
   };
 
   const handleEmail = (event) => {
-    setEmail(event);
+    if (/^\S+@\S+\.\S+$/.test(event)) {
+      setEmail({value: event, error: ''});
+    } else {
+      setEmail({value: '', error: 'Invalid email'})
+    }
   }
 
   const handlePassword = (event) => {
