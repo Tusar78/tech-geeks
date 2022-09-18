@@ -66,8 +66,8 @@ const Login = () => {
   };
 
   /* 
-  Minimum eight characters, at least one uppercase letter, one lowercase letter and      
-  one number: "^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$"
+  Minimum six characters, at least one uppercase letter, one lowercase letter and      
+  one number: "^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{6,}$"
   */
 
   const handlePassword = (event) => {
@@ -75,7 +75,7 @@ const Login = () => {
     if (validPass.test(event)) {
       setPassword({ value: event, error: "" });
     } else {
-      setPassword({ value: "", error: "Invalid Password" });
+      setPassword({ value: "", error: "Minimum six characters, at least one uppercase letter, one lowercase letter and one number" });
     }
   };
 
@@ -159,6 +159,7 @@ const Login = () => {
                   className="form__input password"
                   onBlur={(event) => handlePassword(event.target.value)}
                 />
+                {password?.error && <p className="text-red-500">{password.error}</p>}
               </div>
               <div className="form__group">
                 <label htmlFor="confirmedPassword" className="form__label">
