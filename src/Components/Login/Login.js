@@ -39,27 +39,9 @@ const Login = () => {
       });
   };
 
-  const handleSignUp = (e) => {
-    e.preventDefault();
-    const email = e.target.email.value;
-    const password = e.target.password.value;
-
-    createUserWithEmailAndPassword(auth, email, password)
-      .then((result) => {
-        // Signed in
-        const user = result.user;
-        console.log(user);
-      })
-      .catch((error) => {
-        const errorMessage = error.message;
-        console.log(errorMessage);
-      });
-    console.log(email, password);
-  };
-
-  const handleEmail = (event) => {
-    if (/^\S+@\S+\.\S+$/.test(event)) {
-      setEmail({ value: event, error: "" });
+  const handleEmail = (emailInput) => {
+    if (/^\S+@\S+\.\S+$/.test(emailInput)) {
+      setEmail({ value: emailInput, error: "" });
     } else {
       setEmail({ value: "", error: "Invalid email" });
     }
@@ -70,17 +52,25 @@ const Login = () => {
   one number: "^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{6,}$"
   */
 
-  const handlePassword = (event) => {
+  const handlePassword = (passwordInput) => {
     const validPass = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
-    if (validPass.test(event)) {
-      setPassword({ value: event, error: "" });
+    if (validPass.test(passwordInput)) {
+      setPassword({ value: passwordInput, error: "" });
     } else {
-      setPassword({ value: "", error: "Minimum six characters, at least one uppercase letter, one lowercase letter and one number" });
+      setPassword({
+        value: "",
+        error:
+          "Minimum six characters, at least one uppercase letter, one lowercase letter and one number",
+      });
     }
   };
 
-  const handleConfirmedPassword = (event) => {
-    setConfirmedPassword({ value: event, error: "" });
+  const handleConfirmedPassword = (confirmedPasswordInput) => {
+    if (confirmedPasswordInput === password.value) {
+      setConfirmedPassword({ value: confirmedPasswordInput, error: "" });
+    } else {
+      setConfirmedPassword({ value: "", error: "Password is miss mass" });
+    }
   };
 
   const handleSignIn = (e) => {
@@ -97,6 +87,30 @@ const Login = () => {
         const errorMessage = error.message;
         console.log(errorMessage);
       });
+  };
+
+  const handleSignUp = (e) => {
+    e.preventDefault();
+
+    setEmail({ value: "", error: "Required email" });
+    setPassword({ value: "", error: "Required Password" });
+
+    if (
+      email.value &&
+      password.value &&
+      confirmedPassword.value === password.value
+    ) {
+      createUserWithEmailAndPassword(auth, email.value, password.value)
+        .then((result) => {
+          // Signed in
+          const user = result.user;
+          console.log(user);
+        })
+        .catch((error) => {
+          const errorMessage = error.message;
+          console.log(errorMessage);
+        });
+    }
   };
 
   return (
@@ -159,7 +173,9 @@ const Login = () => {
                   className="form__input password"
                   onBlur={(event) => handlePassword(event.target.value)}
                 />
-                {password?.error && <p className="text-red-500">{password.error}</p>}
+                {password?.error && (
+                  <p className="text-red-500">{password.error}</p>
+                )}
               </div>
               <div className="form__group">
                 <label htmlFor="confirmedPassword" className="form__label">
@@ -174,6 +190,9 @@ const Login = () => {
                     handleConfirmedPassword(event.target.value)
                   }
                 />
+                {confirmedPassword?.error && (
+                  <p className="text-red-500">{confirmedPassword.error}</p>
+                )}
               </div>
               <button type="submit" className="form__button">
                 Sign Up
