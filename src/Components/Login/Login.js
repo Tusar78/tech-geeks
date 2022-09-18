@@ -11,9 +11,12 @@ import {
 
 const Login = () => {
   const [toggle, setToggle] = useState(true);
-  const [email, setEmail] = useState({value: '', error: ''});
-  const [password, setPassword] = useState({value: '', error: ''});
-  const [confirmedPassword, setConfirmedPassword] = useState({value: '', error: ''});
+  const [email, setEmail] = useState({ value: "", error: "" });
+  const [password, setPassword] = useState({ value: "", error: "" });
+  const [confirmedPassword, setConfirmedPassword] = useState({
+    value: "",
+    error: "",
+  });
 
   // console.log(email);
 
@@ -56,29 +59,39 @@ const Login = () => {
 
   const handleEmail = (event) => {
     if (/^\S+@\S+\.\S+$/.test(event)) {
-      setEmail({value: event, error: ''});
+      setEmail({ value: event, error: "" });
     } else {
-      setEmail({value: '', error: 'Invalid email'})
+      setEmail({ value: "", error: "Invalid email" });
     }
-  }
+  };
+
+  /* 
+  Minimum eight characters, at least one uppercase letter, one lowercase letter and      
+  one number: "^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$"
+  */
 
   const handlePassword = (event) => {
-    setPassword(event);
-  }
+    const validPass = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
+    if (validPass.test(event)) {
+      setPassword({ value: event, error: "" });
+    } else {
+      setPassword({ value: "", error: "Invalid Password" });
+    }
+  };
 
   const handleConfirmedPassword = (event) => {
-    setConfirmedPassword(event);
-  }
+    setConfirmedPassword({ value: event, error: "" });
+  };
 
   const handleSignIn = (e) => {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
 
-    signInWithEmailAndPassword (auth, email, password)
+    signInWithEmailAndPassword(auth, email, password)
       .then((result) => {
         // Signed in
-        navigate('/')
+        navigate("/");
       })
       .catch((error) => {
         const errorMessage = error.message;
@@ -133,9 +146,7 @@ const Login = () => {
                   className="form__input email"
                   onBlur={(event) => handleEmail(event.target.value)}
                 />
-                {
-                  email?.error && <p className="text-red-500">{email.error}</p>
-                }
+                {email?.error && <p className="text-red-500">{email.error}</p>}
               </div>
               <div className="form__group">
                 <label htmlFor="password" className="form__label">
@@ -158,7 +169,9 @@ const Login = () => {
                   name="confirmed-password"
                   id="confirmedPassword"
                   className="form__input confirmed-password"
-                  onBlur={(event) => handleConfirmedPassword(event.target.value)}
+                  onBlur={(event) =>
+                    handleConfirmedPassword(event.target.value)
+                  }
                 />
               </div>
               <button type="submit" className="form__button">
