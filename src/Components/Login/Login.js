@@ -92,8 +92,10 @@ const Login = () => {
   const handleSignUp = (e) => {
     e.preventDefault();
 
-    setEmail({ value: "", error: "Required email" });
-    setPassword({ value: "", error: "Required Password" });
+    if (!email.value && !password.value) {
+      setEmail({ value: "", error: "Required email" });
+      setPassword({ value: "", error: "Required Password" });
+    } 
 
     if (
       email.value &&
