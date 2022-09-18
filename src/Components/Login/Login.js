@@ -1,8 +1,13 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { FcGoogle } from "react-icons/fc";
 import { auth } from "../../firebase.init.js";
+import {
+  GoogleAuthProvider,
+  signInWithPopup,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
 
 const Login = () => {
   const [toggle, setToggle] = useState(true);
@@ -17,9 +22,7 @@ const Login = () => {
   const handleGoogleProvider = () => {
     signInWithPopup(auth, googleProvider)
       .then((result) => {
-        // const user = result.user;
-        // console.log(user);
-        navigate("/home");
+        navigate("/");
       })
       .catch((error) => {
         const errorMessage = error.message;
@@ -27,11 +30,39 @@ const Login = () => {
       });
   };
 
-  const handleSubmit = (e) => {
+  const handleSignUp = (e) => {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
+
+    createUserWithEmailAndPassword(auth, email, password)
+      .then((result) => {
+        // Signed in
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        console.log(errorMessage);
+      });
     console.log(email, password);
+  };
+
+  const handleSignIn = (e) => {
+    e.preventDefault();
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+
+    signInWithEmailAndPassword (auth, email, password)
+      .then((result) => {
+        // Signed in
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        console.log(errorMessage);
+      });
   };
 
   return (
@@ -68,7 +99,7 @@ const Login = () => {
               </button>
             </form>
           ) : (
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSignUp}>
               <h2 className="form__title">Sign Up</h2>
               <div className="form__group">
                 <label htmlFor="email" className="form__label">
