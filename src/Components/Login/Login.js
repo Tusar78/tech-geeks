@@ -1,9 +1,7 @@
 import React, { useState } from "react";
-import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { FcGoogle } from "react-icons/fc";
-import app from "../../firebase.init.js";
-
-const auth = getAuth(app);
+import { auth } from "../../firebase.init.js";
 
 const Login = () => {
   const [toggle, setToggle] = useState(true);
