@@ -56,8 +56,7 @@ const Login = () => {
     signInWithEmailAndPassword (auth, email, password)
       .then((result) => {
         // Signed in
-        const user = result.user;
-        console.log(user);
+        navigate('/')
       })
       .catch((error) => {
         const errorMessage = error.message;
@@ -70,7 +69,7 @@ const Login = () => {
       <div className="form-container custom-grid">
         <div className="form">
           {toggle ? (
-            <form>
+            <form onSubmit={handleSignIn}>
               <h2 className="form__title">Login</h2>
               <div className="form__group">
                 <label htmlFor="email" className="form__label">
