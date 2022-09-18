@@ -15,7 +15,7 @@ const Login = () => {
   const [password, setPassword] = useState({value: '', error: ''});
   const [confirmedPassword, setConfirmedPassword] = useState({value: '', error: ''});
 
-  console.log(email);
+  // console.log(email);
 
   const googleProvider = new GoogleAuthProvider();
 
@@ -133,6 +133,9 @@ const Login = () => {
                   className="form__input email"
                   onBlur={(event) => handleEmail(event.target.value)}
                 />
+                {
+                  email?.error && <p className="text-red-500">{email.error}</p>
+                }
               </div>
               <div className="form__group">
                 <label htmlFor="password" className="form__label">
