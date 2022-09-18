@@ -11,6 +11,10 @@ import {
 
 const Login = () => {
   const [toggle, setToggle] = useState(true);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmedPassword, setConfirmedPassword] = useState('');
+  
   const googleProvider = new GoogleAuthProvider();
 
   const navigate = useNavigate();
@@ -47,6 +51,18 @@ const Login = () => {
       });
     console.log(email, password);
   };
+
+  const handleEmail = (event) => {
+    setEmail(event);
+  }
+
+  const handlePassword = (event) => {
+    setPassword(event);
+  }
+
+  const handleConfirmedPassword = (event) => {
+    setConfirmedPassword(event);
+  }
 
   const handleSignIn = (e) => {
     e.preventDefault();
@@ -109,6 +125,7 @@ const Login = () => {
                   name="email"
                   id="email"
                   className="form__input email"
+                  onBlur={(event) => handleEmail(event.target.value)}
                 />
               </div>
               <div className="form__group">
@@ -120,6 +137,7 @@ const Login = () => {
                   name="password"
                   id="password"
                   className="form__input password"
+                  onBlur={(event) => handlePassword(event.target.value)}
                 />
               </div>
               <div className="form__group">
@@ -131,6 +149,7 @@ const Login = () => {
                   name="confirmed-password"
                   id="confirmedPassword"
                   className="form__input confirmed-password"
+                  onBlur={(event) => handleConfirmedPassword(event.target.value)}
                 />
               </div>
               <button type="submit" className="form__button">
