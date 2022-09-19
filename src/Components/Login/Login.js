@@ -32,12 +32,12 @@ const Login = () => {
   const handleGoogleProvider = () => {
     signInWithPopup(auth, googleProvider)
       .then((result) => {
-        toast.success('Login success');
+        toast.success("Login success");
         navigate("/");
       })
       .catch((error) => {
         const errorMessage = error.message;
-        console.log(errorMessage);
+        toast.error(errorMessage);
       });
   };
 
@@ -83,11 +83,12 @@ const Login = () => {
     signInWithEmailAndPassword(auth, email, password)
       .then((result) => {
         // Signed in
+        toast.success("Login success");
         navigate("/");
       })
       .catch((error) => {
         const errorMessage = error.message;
-        console.log(errorMessage);
+        toast.error(errorMessage);
       });
   };
 
@@ -97,7 +98,7 @@ const Login = () => {
     if (!email.value && !password.value) {
       setEmail({ value: "", error: "Required email" });
       setPassword({ value: "", error: "Required Password" });
-    } 
+    }
 
     if (
       email.value &&
@@ -107,12 +108,16 @@ const Login = () => {
       createUserWithEmailAndPassword(auth, email.value, password.value)
         .then((result) => {
           // Signed in
-          const user = result.user;
-          console.log(user);
+          toast.success("Account Created");
+          navigate("/");
         })
         .catch((error) => {
           const errorMessage = error.message;
-          console.log(errorMessage);
+          if (errorMessage.includes('auth/email-already-in-use')) {
+            toast.error('Email already exist');            
+          } else {
+            toast.error(errorMessage);            
+          }
         });
     }
   };
