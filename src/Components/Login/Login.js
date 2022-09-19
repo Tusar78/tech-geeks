@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { auth } from "../../firebase.init.js";
+import toast from "react-hot-toast";
 import {
   GoogleAuthProvider,
   signInWithPopup,
@@ -31,6 +32,7 @@ const Login = () => {
   const handleGoogleProvider = () => {
     signInWithPopup(auth, googleProvider)
       .then((result) => {
+        toast.success('Login success');
         navigate("/");
       })
       .catch((error) => {

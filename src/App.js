@@ -6,6 +6,7 @@ import Videos from "./Components/Videos/Videos";
 import Login from "./Components/Login/Login";
 import NotFound from "./Components/NotFound/NotFound";
 import BlogDetails from "./Components/BlogDetails/BlogDetails";
+import { Toaster } from 'react-hot-toast';
 
 export const BlogContext = createContext()
 
@@ -15,6 +16,7 @@ function App() {
   return (
     <BlogContext.Provider value={[blogs, setBlogs]}>
       <Header />
+      <Toaster />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />
